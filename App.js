@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import Accueil from './Components/Page.js/Accueil'
+import Accueil from './Components/Page/Accueil'
 import { StyleSheet, Text, View } from 'react-native';
 
 class Apps extends React.Component {
