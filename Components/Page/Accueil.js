@@ -5,9 +5,11 @@ export default class Accueil extends React.Component {
 
     render() {
         return (
-            <View style={styles.Accueil}>
-                <Text>Page d'Accueil</Text>
-
+            <View style={styles.container}>
+                <Text>Page d'Accueil ok</Text>
+                <Text>Ta pas 10 euros</Text>
+                <Text>Donne moi les 2 euros avant</Text>
+                <Text>Donne moi </Text>
             </View>
         );
     }
