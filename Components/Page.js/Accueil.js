@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-xport default class Accueil extends React.Component {
+export default class Accueil extends React.Component {
 
     render() {
         return (
