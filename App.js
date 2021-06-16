@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import Accueil from './Components/Page.js/Accueil'
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class Apps extends React.Component {
+  render() {
+    return (
+      <Accueil/>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
