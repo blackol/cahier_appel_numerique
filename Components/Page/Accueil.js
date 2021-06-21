@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Button } from 'react-native';
 
 export default class Accueil extends React.Component {
 
@@ -10,6 +10,7 @@ export default class Accueil extends React.Component {
                 <Text>Ta pas 10 euros</Text>
                 <Text>Donne moi les 2 euros avant</Text>
                 <Text>Donne moi </Text>
+               
             </View>
         );
     }

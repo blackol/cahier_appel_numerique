@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import Accueil from './Components/Page/Accueil'
+import Navigation from './Components/Navigation/Navigation'
 import { StyleSheet, Text, View } from 'react-native';
 
 export default class Apps extends React.Component {
   render() {
     return (
-      <Accueil/>
+      <Navigation/>
     )
   }
 }
