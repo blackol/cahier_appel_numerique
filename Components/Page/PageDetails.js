@@ -6,14 +6,10 @@ export default class PageDetails extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Page d'Accueil ok</Text>
-                <Text>Ta pas 10 euros</Text>
-                <Text>Donne moi les 2 euros avant</Text>
-                <Text>Donne moi </Text>
-                <Butto
-                title="Page2"
-                onPress={() => this.props.navigation.navigate("DetailsScreen")}
-                />
+                <Text>Page details</Text>
+                
+               
+                
                
             </View>
         );
