@@ -10,9 +10,9 @@ export default class Accueil extends React.Component {
                 <Text>Ta pas 10 euros</Text>
                 <Text>Donne moi les 2 euros avant</Text>
                 <Text>Donne moi </Text>
-                <Butto
+                <Button
                 title="Page2"
-                onPress={() => this.props.navigation.navigate("DetailsScreen")}
+                onPress={() => this.props.navigation.navigate("Details")}
                 />
                
             </View>

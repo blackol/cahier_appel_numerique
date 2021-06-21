@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text,Button" } from 'react-native';
+import { View, Text,Button} from 'react-native';
 import Accueil from '../Page/Accueil';
 import PageDetails from '../Page/PageDetails';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,14 +9,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 function HomeScreen({ navigation }) {
   return (
-    
-      <Accueil/>
-    
+      <Accueil navigation={navigation}/>
   );
 }
-function DetailsScreen() {
+function DetailsScreen(navigation) {
   return (
-    <PageDetails/>
+    <PageDetails navigation={navigation}/>
     
   );
 }
