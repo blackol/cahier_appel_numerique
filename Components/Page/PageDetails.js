@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View,Button } from 'react-native';
 
-export default class Accueil extends React.Component {
+export default class PageDetails extends React.Component {
 
     render() {
         return (
