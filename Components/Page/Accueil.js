@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,onChangeText } from 'react-native';
+import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image } from 'react-native';
 
 export default class Accueil extends React.Component {
   
@@ -8,6 +8,7 @@ export default class Accueil extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>Page d'Accueil ok</Text>
+                <Image source={require('../asset/icon.png')} />
                 <TextInput style={styles.input}>je teste des trucs</TextInput>
                 <Button
                 title="Page2"
