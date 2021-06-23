@@ -12,7 +12,6 @@ export default class Accueil extends React.Component {
         password: '',
       };
     }
-    ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
           <View style={styles.container}>
