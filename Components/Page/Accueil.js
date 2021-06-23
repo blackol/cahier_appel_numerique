@@ -12,12 +12,13 @@ export default class Accueil extends React.Component {
         password: '',
       };
     }
+    ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
           <View style={styles.container}>
             <View style={{ flex: 3 }} >
               
-                <Image source={require('../asset/Fouillole.jpg')}  style={{ width: 250, height: 250 }}/>
+                <Image source={require('../asset/Fouillole.jpg')}  style={styles.image}/>
               
             </View>
             
@@ -37,6 +38,7 @@ export default class Accueil extends React.Component {
                   style={styles.input}
                   />
             </View>
+            
             <View style={{ flex: 3 }}>
             <Button
                 style={styles.buttonStyles}
@@ -85,7 +87,19 @@ const styles = StyleSheet.create({
   {
     flex: 1,
     flexDirection:"column",
+    marginTop:30,
+   
   },
+
+  image:{ 
+    
+    width: 200, 
+    height: 200,
+    marginLeft: 80,
+    borderRadius : 10,
+    
+  },
+  
   input: {
     //width: 200,
     height: 40,
@@ -95,6 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
     borderRadius : 30,
+    backgroundColor:'white'
   },
 
   buttonStyles:{
