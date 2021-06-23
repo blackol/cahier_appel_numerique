@@ -27,7 +27,7 @@ function Navigation() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Cahier de presence' }} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Menu Principale' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
