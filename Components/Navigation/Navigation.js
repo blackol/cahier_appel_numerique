@@ -1,36 +1,36 @@
-// In App.js in a new project
-
 import * as React from 'react';
-import { View, Text,Button} from 'react-native';
-import Accueil from '../Page/Accueil';
-import PageDetails from '../Page/PageDetails';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 function HomeScreen({ navigation }) {
   return (
-      <Accueil navigation={navigation}/>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
+    </View>
   );
 }
-function DetailsScreen(navigation) {
+
+function NotificationsScreen({ navigation }) {
   return (
-    <PageDetails navigation={navigation}/>
-    
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
+    </View>
   );
 }
 
+const Drawer = createDrawerNavigator();
 
-const Stack = createStackNavigator();
-
-function Navigation() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Cahier de presence' }} />
-        <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Menu Principale' }}/>
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-export default Navigation;

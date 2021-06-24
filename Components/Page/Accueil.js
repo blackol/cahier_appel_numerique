@@ -52,6 +52,7 @@ export default class Accueil extends React.Component {
 
           
           /*
+          '
             <View style={styles.container}>
               <View style={styles.ConteneurButton}>
                 <Image source={require('../asset/Fouillole.jpg')}  style={{ width: 60, height: 60 }}/> 
