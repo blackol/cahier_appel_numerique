@@ -39,7 +39,9 @@ export default class HomePage extends React.Component {
 
 
 
-            <View style={styles.ConteneurCoursetat}></View>
+            <View style={styles.ConteneurCoursetat}>
+                <Button tittle="Singn out" onPress={this.props.signOut}/>
+            </View>
 
 
             <View style={styles.Tabdebord}></View>
