@@ -2,15 +2,21 @@ import { Assets } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
 
+async function storeLoginInfo(id, pass)
+{
+  try{
+    AsyncStorage.setItem("identifiant", id);
+    AsyncStorage.setItem("pass", pass)
 
+  }catch(e)
+  {
+
+  }
+}
 export default class Accueil extends React.Component {
     constructor(props){
       super(props);
 
-      this.state={
-        id_student: '',
-        password: '',
-      };
     }
     ///////////////////////:::esijbpiubqpidiudb
     render() {
@@ -26,13 +32,13 @@ export default class Accueil extends React.Component {
             <View style={{ flex: 2 }}>
             <TextInput
                   value={this.state.id_student}
-                  onChangeText={(id_student) => this.setState({id_student})}
+                  onChangeText={(id_student) => this.setState({id})}
                   placeholder='Numéro Étudiant'
                   style={styles.input}
                   />
                   <TextInput
                   value={this.state.password}
-                  onChangeText={(password) => this.setState({password})}
+                  onChangeText={(password) => this.setState({pass    })}
                   placeholder='Password'
                   type='password'
                   style={styles.input}
