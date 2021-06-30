@@ -1,7 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { AuthContext } from "./context";
-
+import Accueil from "../Page/Accueil";
+import HomePage from"../Page/HomePage";
+import Inscription from "../Page/Inscription";
+import InscriptionEtudiant from "../Page/InscriptionEtudiant";
+import InscriptionProfesseur from "../Page/InscriptionProfesseur";
+import Profiles from "../Page/Profiles";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -22,20 +27,7 @@ const ScreenContainer = ({ children }) => (
 
 export const Home = ({ navigation }) => (
   <ScreenContainer>
-    <Text>Master List Screen</Text>
-    <Button
-      title="React Native by Example"
-      onPress={() =>
-        navigation.push("Details", { name: "React Native by Example " })
-      }
-    />
-    <Button
-      title="React Native School"
-      onPress={() =>
-        navigation.push("Details", { name: "React Native School" })
-      }
-    />
-    <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
+    <HomePage navigation={navigation}/>
   </ScreenContainer>
 );
 
@@ -46,36 +38,32 @@ export const Details = ({ route }) => (
   </ScreenContainer>
 );
 
-export const Search = ({ navigation }) => (
+
+export const Inscriptions = ({ navigation }) => (
   <ScreenContainer>
-    <Text>Search Screen</Text>
-    <Button title="Search 2" onPress={() => navigation.push("Search2")} />
-    <Button
-      title="React Native School"
-      onPress={() => {
-        navigation.navigate("Home", {
-          screen: "Details",
-          params: { name: "React Native School" }
-        });
-      }}
-    />
+    <Inscription navigation={navigation}/>
+  </ScreenContainer>
+);
+export const InscriptionsEtudiant = () => (
+  <ScreenContainer>
+    <InscriptionEtudiant />
+  </ScreenContainer>
+);
+export const InscriptionsProfesseur = () => (
+  <ScreenContainer>
+    <InscriptionProfesseur />
   </ScreenContainer>
 );
 
-export const Search2 = () => (
-  <ScreenContainer>
-    <Text>Search2 Screen</Text>
-  </ScreenContainer>
-);
 
 export const Profile = ({ navigation }) => {
   const { signOut } = React.useContext(AuthContext);
-
   return (
     <ScreenContainer>
-      <Text>Profile Screen</Text>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-      <Button title="Sign Out" onPress={() => signOut()} />
+      <Profiles navigation={navigation}/>
+      <View style={{ flex: 1}}>
+        <Button title="Sign Out" onPress={() => signOut()} />
+      </View>
     </ScreenContainer>
   );
 };
@@ -88,15 +76,14 @@ export const Splash = () => (
 
 export const SignIn = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
-
   return (
     <ScreenContainer>
-      <Text>Sign In Screen</Text>
-      <Button title="Sign In" onPress={() => signIn()} />
-      <Button
-        title="Create Account"
-        onPress={() => navigation.push("CreateAccount")}
-      />
+       <Accueil navigation={navigation}/>
+        <View style={{ flex: 1 , marginTop:-250}}>
+          <Button title="Connecter-vous ?" onPress={() => signIn()} />
+        </View>
+       
+     
     </ScreenContainer>
   );
 };

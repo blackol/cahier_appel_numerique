@@ -1,23 +1,23 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { AuthContext } from "./context";
 import {
   SignIn,
   CreateAccount,
-  Search,
   Home,
+  Inscriptions,
   Details,
-  Search2,
   Profile,
-  Splash
-} from "./Screens";
+  Splash,
+  InscriptionsEtudiant,
+  InscriptionsProfesseur,
+} from "./Screen";
 
 const AuthStack = createStackNavigator();
-const AuthStackScreen = () => (
+const AuthStackScreen = (navigation) => (
   <AuthStack.Navigator>
     <AuthStack.Screen
       name="SignIn"
@@ -32,9 +32,9 @@ const AuthStackScreen = () => (
   </AuthStack.Navigator>
 );
 
-const Tabs = createBottomTabNavigator();
+
 const HomeStack = createStackNavigator();
-const SearchStack = createStackNavigator();
+
 
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
@@ -49,12 +49,6 @@ const HomeStackScreen = () => (
   </HomeStack.Navigator>
 );
 
-const SearchStackScreen = () => (
-  <SearchStack.Navigator>
-    <SearchStack.Screen name="Search" component={Search} />
-    <SearchStack.Screen name="Search2" component={Search2} />
-  </SearchStack.Navigator>
-);
 
 const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => (
@@ -63,18 +57,22 @@ const ProfileStackScreen = () => (
   </ProfileStack.Navigator>
 );
 
-const TabsScreen = () => (
-  <Tabs.Navigator>
-    <Tabs.Screen name="Home" component={HomeStackScreen} />
-    <Tabs.Screen name="Search" component={SearchStackScreen} />
-  </Tabs.Navigator>
+
+const InscriptionStack = createStackNavigator();
+const InscriptionStackScreen = () => (
+  <InscriptionStack.Navigator>
+    <ProfileStack.Screen name="Inscription" component={Inscriptions} />
+    <ProfileStack.Screen name="InscriptionsEtudiant" component={InscriptionsEtudiant} />
+    <ProfileStack.Screen name="InscriptionsProfesseur" component={InscriptionsProfesseur} />
+  </InscriptionStack.Navigator>
 );
 
 const Drawer = createDrawerNavigator();
 const DrawerScreen = () => (
   <Drawer.Navigator initialRouteName="Profile">
-    <Drawer.Screen name="Home" component={TabsScreen} />
+    <Drawer.Screen name="Home" component={HomeStackScreen} />
     <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+    <Drawer.Screen name="Inscription" component={InscriptionStackScreen} />
   </Drawer.Navigator>
 );
 

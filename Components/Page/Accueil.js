@@ -1,5 +1,6 @@
 import { Assets } from '@react-navigation/stack';
 import React from 'react';
+import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
 
 async function storeLoginInfo(id, pass)
@@ -21,7 +22,7 @@ export default class Accueil extends React.Component {
     ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
-          <View style={styles.container}>
+          <View style={{flex: 10,flexDirection:"column", marginTop:30,}}>
             <View style={{ flex: 3 }} >
               
                 <Image source={require('../asset/Fouillole.jpg')}  style={styles.image}/>
@@ -31,13 +32,12 @@ export default class Accueil extends React.Component {
             
             <View style={{ flex: 2 }}>
             <TextInput
-                  value={this.state.id_student}
                   onChangeText={(id_student) => this.setState({id})}
                   placeholder='Numéro Étudiant'
                   style={styles.input}
                   />
                   <TextInput
-                  value={this.state.password}
+                 
                   onChangeText={(password) => this.setState({pass    })}
                   placeholder='Password'
                   type='password'
@@ -47,11 +47,9 @@ export default class Accueil extends React.Component {
             
             <View style={{ flex: 3 }}>
             <Button
-                style={styles.buttonStyles}
-                  title="Connecte-toi"
-                  color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Details")}
-                  />
+              title="Mots de Passe oublier"
+              onPress={() => this.props.navigation.navigate("CreateAccount")}
+            />
             </View>
           </View>
 
@@ -102,7 +100,6 @@ const styles = StyleSheet.create({
     
     width: 200, 
     height: 200,
-    marginLeft: 80,
     borderRadius : 10,
     
   },
