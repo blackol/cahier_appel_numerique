@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,Image, TouchableOpacity } from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
 
@@ -12,7 +11,7 @@ export default class PageEtudiant extends React.Component {
 
               <View  style={{ flex: 1,flexDirection:"row", }}>
               <View style={{ flex: 1}}>
-                <Button title="Menu" color="black" onPress={() => this.props.navigation.toggleDrawer()} />
+                <Button title="Menu"  onPress={() => this.props.navigation.toggleDrawer()} />
               </View>
                 <View style={{ flex: 2}}></View>
                 <View style={{ flex: 2}}></View>
