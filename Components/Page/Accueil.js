@@ -2,23 +2,15 @@ import { Assets } from '@react-navigation/stack';
 import React from 'react';
 import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
+// importation des Api 
 
-async function storeLoginInfo(id, pass)
-{
-  try{
-    AsyncStorage.setItem("identifiant", id);
-    AsyncStorage.setItem("pass", pass)
-
-  }catch(e)
-  {
-
-  }
-}
 export default class Accueil extends React.Component {
-    constructor(props){
-      super(props);
+  constructor(props)
+  {
+    super(props)
+    
+  }
 
-    }
     ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
