@@ -6,11 +6,7 @@ export default class PageDetails extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Page details</Text>
-                
-               
-                
-               
+                <Text>Page details</Text>  
             </View>
         );
     }
