@@ -1,8 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { AuthContext } from "./context";
-import Accueil from "../Page/Accueil";
-import HomePage from"../Page/HomePage";
 import Inscription from "../Page/Inscription";
 import InscriptionEtudiant from "../Page/InscriptionEtudiant";
 import InscriptionProfesseur from "../Page/InscriptionProfesseur";
@@ -23,12 +21,6 @@ const styles = StyleSheet.create({
 
 const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
-);
-
-export const Home = ({ navigation }) => (
-  <ScreenContainer>
-    <HomePage navigation={navigation}/>
-  </ScreenContainer>
 );
 
 export const Details = ({ route }) => (
@@ -57,13 +49,10 @@ export const InscriptionsProfesseur = () => (
 
 
 export const Profile = ({ navigation }) => {
-  const { signOut } = React.useContext(AuthContext);
+  
   return (
     <ScreenContainer>
       <Profiles navigation={navigation}/>
-      <View style={{ flex: 1}}>
-        <Button title="Sign Out" onPress={() => signOut()} />
-      </View>
     </ScreenContainer>
   );
 };
@@ -74,19 +63,7 @@ export const Splash = () => (
   </ScreenContainer>
 );
 
-export const SignIn = ({ navigation }) => {
-  const { signIn } = React.useContext(AuthContext);
-  return (
-    <ScreenContainer>
-       <Accueil navigation={navigation}/>
-        <View style={{ flex: 1 , marginTop:-250}}>
-          <Button title="Connecter-vous ?" onPress={() => signIn()} />
-        </View>
-       
-     
-    </ScreenContainer>
-  );
-};
+
 
 export const CreateAccount = () => {
   const { signUp } = React.useContext(AuthContext);

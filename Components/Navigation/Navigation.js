@@ -2,40 +2,27 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
-import { AuthContext } from "./context";
+import HomePage from"../Page/HomePage";
 import {
-  SignIn,
-  CreateAccount,
-  Home,
+  SignIns,
   Inscriptions,
   Details,
   Profile,
-  Splash,
   InscriptionsEtudiant,
   InscriptionsProfesseur,
 } from "./Screen";
+var utilisateur ={};
+// initialisation des vues qui ont besoin des infos utilisateurs pour fonctionner
 
-const AuthStack = createStackNavigator();
-const AuthStackScreen = (navigation) => (
-  <AuthStack.Navigator>
-    <AuthStack.Screen
-      name="SignIn"
-      component={SignIn}
-      options={{ title: "Sign In" }}
-    />
-    <AuthStack.Screen
-      name="CreateAccount"
-      component={CreateAccount}
-      options={{ title: "Create Account" }}
-    />
-  </AuthStack.Navigator>
-);
+const Home = ({ navigation }) => {
+  return (
+    
+    <HomePage navigation={navigation} user = {utilisateur}/>
+  )
+  }
 
-
+// Création des Stack Navigator
 const HomeStack = createStackNavigator();
-
-
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
     <HomeStack.Screen name="Home" component={Home} />
@@ -53,8 +40,16 @@ const HomeStackScreen = () => (
 const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile} />
+    <ProfileStack.Screen name="Profile" component={Profile}> 
+    </ProfileStack.Screen>
   </ProfileStack.Navigator>
+);
+
+const SignInStack = createStackNavigator();
+const SignInStackScreen = () => (
+  <SigInStack.Navigator>
+    <SigInStackScreen.Screen name="SignIn" component={SignIns} />
+  </SigInStack.Navigator>
 );
 
 
@@ -76,6 +71,70 @@ const DrawerScreen = () => (
   </Drawer.Navigator>
 );
 
+
+
+
+import SignIn from "../Page/SignIn";
+class Navigation extends React.Component{
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      connected: true,
+    }
+    
+  }
+// fonction que l'on va envoyer a notre vue avec de quoi modifier l'etat
+  sayConnected(profil)
+  {
+    utilisateur = profil;
+    this.setState({connected: false});
+  }
+  authentification(){
+    if (!this.state.connected){
+      return(
+        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Profile" component={ProfileStackScreen}/>
+        <Drawer.Screen name="Inscription" component={InscriptionStackScreen} />
+        </Drawer.Navigator>
+      )
+
+    }else{
+      return null;
+    }
+  }
+
+  DrawerScreen(){
+    if (this.state.connected){
+      return(
+        <SignInStack.Navigator>
+          <SignInStack.Screen name="SignIn" >
+            {props => <SignIn {...props} sayConnected = {(profil)=> this.sayConnected(profil)} />} 
+            {/*on envoie notre fonction dans la vue SigIN maintenant elle peut l'utilser car stocker dans*/}
+          </SignInStack.Screen>
+        </SignInStack.Navigator>
+      )
+    }else{
+      return null;
+    }
+  }
+
+
+render()
+  {
+  return (
+    <NavigationContainer>  
+    {this.authentification()} 
+    {this.DrawerScreen()}
+    </NavigationContainer>
+  );}
+
+
+  }
+
+
+/*
 const RootStack = createStackNavigator();
 const RootStackScreen = ({ userToken }) => (
   <RootStack.Navigator headerMode="none">
@@ -100,6 +159,9 @@ const RootStackScreen = ({ userToken }) => (
 );
 
 export default () => {
+
+
+
   const [isLoading, setIsLoading] = React.useState(true);
   const [userToken, setUserToken] = React.useState(null);
 
@@ -138,3 +200,5 @@ export default () => {
     </AuthContext.Provider>
   );
 };
+*/
+export default Navigation;

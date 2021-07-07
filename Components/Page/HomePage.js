@@ -6,6 +6,9 @@ import {createDrawerNavigator} from 'react-navigation';
 export default class PageEtudiant extends React.Component {
 
     render() {
+      console.log("HOme")
+      console.log(this.props
+        )
         return (
             <View style={styles.container}>
 

@@ -3,41 +3,54 @@ import React from 'react';
 import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
 // importation des Api 
-
 export default class Accueil extends React.Component {
   constructor(props)
   {
     super(props)
+    this.id = null;
+    this.pass = null;
+    this.user ="infouserjson";
+  }
+  
+  async connect(infousers){
+    console.log("Connection")
+    this.props.sayConnected(infousers)
+    console.log(this.id)
+    console.log(this.pass)
+    console.log(this.user)
     
   }
-
+  
     ///////////////////////:::esijbpiubqpidiudb
     render() {
+      console.log("Singinvue")
+      console.log(this.props)
         return (
           <View style={{flex: 10,flexDirection:"column", marginTop:30,}}>
-            <View style={{ flex: 3 }} >
-              
+            <View style={{ flex: 3, flexDirection:"row" }} >
+              <View style={{ flex: 1 }}></View>
                 <Image source={require('../asset/Fouillole.jpg')}  style={styles.image}/>
-              
+                <View style={{ flex: 1 }}></View>
             </View>
             
             
             <View style={{ flex: 2 }}>
-            <TextInput
-                  onChangeText={(id_student) => this.setState({id})}
+              <TextInput
+                  onChangeText = {(text)=>{this.id = text}}
                   placeholder='Numéro Étudiant'
                   style={styles.input}
                   />
-                  <TextInput
-                 
-                  onChangeText={(password) => this.setState({pass    })}
+              <TextInput
+                 onChangeText = {(text)=>{this.pass = text}}
                   placeholder='Password'
                   type='password'
                   style={styles.input}
+                  secureTextEntry={true}
                   />
             </View>
             
-            <View style={{ flex: 3 }}>
+            <View style={{ flex: 1 }}>
+            <Button title="Connecter-vous ?" onPress={() =>this.connect(this.user)} />
             <Button
               title="Mots de Passe oublier"
               onPress={() => this.props.navigation.navigate("CreateAccount")}

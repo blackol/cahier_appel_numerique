@@ -3,7 +3,14 @@ import { StyleSheet, Text, View,Button,Image, Alert, TouchableOpacity} from 'rea
 
 
 export default class Profiles extends React.Component {
-    ///////////////////////:::esijbpiubqpidiudb
+
+  constructor(props)
+  {
+    super(props)
+    this.users ='yolo';
+  }
+
+ 
     render() {
         return (
           <View style={styles.container}>
