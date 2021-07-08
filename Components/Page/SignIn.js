@@ -1,30 +1,33 @@
-import { Assets } from '@react-navigation/stack';
 import React from 'react';
-import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
 // importation des Api 
+// importation bd test
+import utilisateurs from '../API/Datatests'
+//-------------
 export default class Accueil extends React.Component {
   constructor(props)
   {
     super(props)
     this.id = null;
     this.pass = null;
-    this.user ="infouserjson";
+    this.user =utilisateurs;
   }
   
   async connect(infousers){
-    console.log("Connection")
+    if(infousers ){
+      console.log("Connection")
     this.props.sayConnected(infousers)
-    console.log(this.id)
-    console.log(this.pass)
-    console.log(this.user)
+    }
+    message("Hmmm...", "Il semblerait que votre identifiant ou votre mot de passe soit incorrect")
+
+    
     
   }
   
     ///////////////////////:::esijbpiubqpidiudb
     render() {
-      console.log("Singinvue")
-      console.log(this.props)
+      console.log("Singin Vue")
+      console.log(utilisateurs)
         return (
           <View style={{flex: 10,flexDirection:"column", marginTop:30,}}>
             <View style={{ flex: 3, flexDirection:"row" }} >
