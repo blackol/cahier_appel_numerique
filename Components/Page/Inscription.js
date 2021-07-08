@@ -3,7 +3,7 @@ import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, Touc
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 
-export default class Accueil extends React.Component {
+export default class Inscription extends React.Component {
     ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
@@ -19,7 +19,7 @@ export default class Accueil extends React.Component {
              <Button
                   title="Etudiant"
                   color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Inscription Etudiant")}
+                  onPress={() => this.props.navigation.navigate("InscriptionsEtudiant")}
                   />
                 </View>
 
@@ -27,38 +27,12 @@ export default class Accueil extends React.Component {
                 <Button
                   title="Professeur"
                   color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Inscription Professeur")}
+                  onPress={() => this.props.navigation.navigate("InscriptionsProfesseur")}
                   />
                 </View>
              </View>
           </View>
 
-
-          
-          /*
-            <View style={styles.container}>
-              <View style={styles.ConteneurButton}>
-                <Image source={require('../asset/Fouillole.jpg')}  style={{ width: 60, height: 60 }}/> 
-              </View>
-              <View style={styles.ConteneurButton}>
-                <TextInput
-                  value={this.state.id_student}
-                  onChangeText={(id_student) => this.setState({id_student})}
-                  placeholder='Numéro Étudiant'
-                  style={styles.input}
-                  />
-                  <TextInput
-                  value={this.state.password}
-                  onChangeText={(password) => this.setState({password})}
-                  placeholder='Password'
-                  style={styles.input}
-                  />
-              </View>
-              <View style={styles.ConteneurButton}>
-                
-              </View>
-            </View>
-            */
             
         );
     }
@@ -79,7 +53,7 @@ const styles = StyleSheet.create({
     
     width: 200, 
     height: 200,
-    marginLeft: 80,
+    //marginLeft: 80,
     borderRadius : 10,
     
   },
