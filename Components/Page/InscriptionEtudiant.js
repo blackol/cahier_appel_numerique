@@ -92,31 +92,6 @@ export default class InscriptionEtudiant extends React.Component {
           </View>
 
 
-          
-          /*
-            <View style={styles.container}>
-              <View style={styles.ConteneurButton}>
-                <Image source={require('../asset/Fouillole.jpg')}  style={{ width: 60, height: 60 }}/> 
-              </View>
-              <View style={styles.ConteneurButton}>
-                <TextInput
-                  value={this.state.id_student}
-                  onChangeText={(id_student) => this.setState({id_student})}
-                  placeholder='Numéro Étudiant'
-                  style={styles.input}
-                  />
-                  <TextInput
-                  value={this.state.password}
-                  onChangeText={(password) => this.setState({password})}
-                  placeholder='Password'
-                  style={styles.input}
-                  />
-              </View>
-              <View style={styles.ConteneurButton}>
-                
-              </View>
-            </View>
-            */
             
         );
     }
