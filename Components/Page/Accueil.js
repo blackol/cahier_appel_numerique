@@ -1,60 +1,64 @@
 import { Assets } from '@react-navigation/stack';
 import React from 'react';
+import { Icon } from 'react-native-elements'
 import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
 
+async function storeLoginInfo(id, password)
+{
+  try{
+    AsyncStorage.setItem("identifiant", id);
+    AsyncStorage.setItem("pass", password)
 
+  }catch(e)
+  {
+
+  }
+}
 export default class Accueil extends React.Component {
+    constructor(props){
+      super(props);
+
+    }
     ///////////////////////:::esijbpiubqpidiudb
     render() {
         return (
-          <View style={styles.container}>
-            <View style={{ flex: -2 }} >
+          <View style={{flex: 10,flexDirection:"column", marginTop:70}}>
+            <View style={{ flex: 2 }} >
               
                 <Image source={require('../asset/Fouillole.jpg')}  style={styles.image}/>
               
             </View>
-          
-            <View style={{ flex: -1}}>
-            <View style={styles.ButtonSyle}>
-             <Button
-                  title="Etudiant"
-                  color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Etudiant")}
+            
+            
+            <View style={{ flex: 0,  marginTop:125 }}>
+            <TextInput
+                  onChangeText={(id) => this.setState({id})}
+                  placeholder='Login'
+                  style={styles.input}
                   />
-                </View>
-
-                <View style={styles.ButtonSyle}>
-                <Button
-                  title="Professeur"
-                  color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Professeur")}
+                  <TextInput
+                 
+                  onChangeText={(password) => this.setState({password})}
+                  placeholder='Password'
+                  type='password'
+                  underlineColorAndroid="transparent"
+                  secureTextEntry={true}
+                  style={styles.input}
                   />
-                </View>
-
-                <View style={styles.ButtonSyle}>
-                <Button
-                  title="Administrateur"
-                  color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Detail")}
-                  />
-                </View>
-
-                <View style={styles.ButtonSyle}>
-                <Button
-                  title="Inscription"
-                  color="#0074b7"
-                  onPress={() => this.props.navigation.navigate("Inscription")}
-                  />
-                </View>
-
-
-             </View>
+            </View>
+            
+            <View style={{ flex: 5, marginTop:20 }}>
+            <Button
+              title="Mots de Passe oublier ?"
+              onPress={() => this.props.navigation.navigate("MotDePasseOublie")}
+            />
+            </View>
           </View>
 
 
           
           /*
+          '
             <View style={styles.container}>
               <View style={styles.ConteneurButton}>
                 <Image source={require('../asset/Fouillole.jpg')}  style={{ width: 60, height: 60 }}/> 
@@ -98,14 +102,8 @@ const styles = StyleSheet.create({
     
     width: 200, 
     height: 200,
-    marginLeft: 80,
     borderRadius : 10,
     
-  },
-
-  form:{
-       marginBottom:12,
-       marginLeft:155,
   },
   
   input: {
@@ -120,25 +118,13 @@ const styles = StyleSheet.create({
     backgroundColor:'white'
   },
 
-  ButtonSyle:{
-    padding : 16,
-    borderRadius : 10,
+  buttonStyles:{
+    backgroundColor: '#0074b7',
+    marginTop : 10,
+    padding: 5,
+    width : 150,
+    borderRadius: 25,
   },
-
-  btnEyes:{
-  position : 'absolute',
-  right: 28,
-  top:80,
-
-},
-  forgot:{
-    fontSize:20,
-    color:'red',
-    left: 145,
-
-  },
-
-
   Conteneurphoto :{
     flex: 1,
     backgroundColor:'red',
@@ -154,5 +140,3 @@ const styles = StyleSheet.create({
 
 
 });
-
-
