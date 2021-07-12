@@ -2,14 +2,19 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import Icon from 'react-native-vector-icons/Ionicons';
 import HomePage from"../Page/HomePage";
+import Profiles from "../Page/Profiles";
 import {
   SignIns,
   Inscriptions,
   Details,
-  Profile,
+  Liste,
+  Splash,
   InscriptionsEtudiant,
   InscriptionsProfesseur,
+  MotDePasseOublie,
+  Agendas
 } from "./Screen";
 var utilisateur ={};
 // initialisation des vues qui ont besoin des infos utilisateurs pour fonctionner
@@ -20,38 +25,79 @@ const Home = ({ navigation }) => {
     <HomePage navigation={navigation} user = {utilisateur}/>
   )
   }
+  const Profile = ({ navigation }) => {
+    return (
+      
+      <Profiles navigation={navigation} users = {utilisateur}/>
+    )
+    }
+  
 
 // Création des Stack Navigator
 const HomeStack = createStackNavigator();
-const HomeStackScreen = () => (
+const HomeStackScreen = ({ navigation }) => (
   <HomeStack.Navigator>
-    <HomeStack.Screen name="Home" component={Home} />
-    <HomeStack.Screen
-      name="Details"
-      component={Details}
-      options={({ route }) => ({
-        title: route.params.name
-      })}
-    />
+    <HomeStack.Screen name="Home" component={Home}
+    options={{
+      headerLeft: () => (
+          <Icon.Button name='ios-menu' size={20} title = 'Accueil'
+          onPress={() => navigation.toggleDrawer()}/>
+      ),
+  }}/> 
   </HomeStack.Navigator>
+);
+
+const AgendaStack = createStackNavigator();
+const AgendaStackScreen = ({navigation}) =>(
+  <AgendaStack.Navigator>
+    <AgendaStack.Screen name="Agenda" component={Agendas}
+     options={{
+      headerLeft: () => (
+          <Icon.Button name='ios-menu' size={20}
+          onPress={() => navigation.toggleDrawer()}/>
+      )
+  }}
+  />
+  </AgendaStack.Navigator>
 );
 
 
 const ProfileStack = createStackNavigator();
-const ProfileStackScreen = () => (
+const ProfileStackScreen = ({ navigation }) => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile}> 
+    <ProfileStack.Screen name="Profile" component={Profile}
+    options={{headerLeft: () => (
+          <Icon.Button name='ios-menu' size={20}
+          onPress={() => navigation.toggleDrawer()}/>
+      )
+  }}>
     </ProfileStack.Screen>
+    <ProfileStack.Screen name="Inscription" component={Inscriptions}/>
+    <ProfileStack.Screen name="InscriptionsEtudiant" component={InscriptionsEtudiant} />
+    <ProfileStack.Screen name="InscriptionsProfesseur" component={InscriptionsProfesseur} />
+
   </ProfileStack.Navigator>
 );
 
 const SignInStack = createStackNavigator();
-const SignInStackScreen = () => (
+const SignInStackScreen = ({ navigation }) => (
   <SigInStack.Navigator>
     <SigInStackScreen.Screen name="SignIn" component={SignIns} />
   </SigInStack.Navigator>
 );
 
+const ListeStack = createStackNavigator();
+const ListeStackScreen = ({navigation}) => (
+  <ListeStack.Navigator>
+    <ListeStack.Screen name="Liste" component={Liste}
+    options={{
+      headerLeft: () => (
+          <Icon.Button name='ios-menu' size={20}
+          onPress={() => navigation.toggleDrawer()}/>
+      )
+  }} />
+  </ListeStack.Navigator>
+);
 
 const InscriptionStack = createStackNavigator();
 const InscriptionStackScreen = () => (
@@ -90,13 +136,18 @@ class Navigation extends React.Component{
     utilisateur = profil;
     this.setState({connected: false});
   }
+  donnected()
+  {
+    this.setState({connected: true});
+  }
   authentification(){
     if (!this.state.connected){
       return(
         <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeStackScreen} />
-        <Drawer.Screen name="Profile" component={ProfileStackScreen}/>
-        <Drawer.Screen name="Inscription" component={InscriptionStackScreen} />
+          <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Profile" component={ProfileStackScreen} />
+        <Drawer.Screen name="Liste" component={ListeStackScreen} />
+        <Drawer.Screen name="Agenda" component={AgendaStackScreen} />
         </Drawer.Navigator>
       )
 

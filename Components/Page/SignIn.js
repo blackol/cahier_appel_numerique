@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View,Button,TextInput,onChangeText,Image, Alert, TouchableOpacity, message} from 'react-native';
 // importation des Api 
 // importation bd test
+import getListeétudiantesFromApi from '../API/Api';
 import utilisateurs from '../API/Datatests'
+
+
+
 //-------------
 export default class Accueil extends React.Component {
   constructor(props)
@@ -12,22 +16,27 @@ export default class Accueil extends React.Component {
     this.pass = null;
     this.user =utilisateurs;
   }
+
   
   async connect(infousers){
     if(infousers ){
+      
       console.log("Connection")
     this.props.sayConnected(infousers)
+    } else{
+      message("Hmmm...", "Il semblerait que votre identifiant ou votre mot de passe soit incorrect")
     }
-    message("Hmmm...", "Il semblerait que votre identifiant ou votre mot de passe soit incorrect")
-
     
     
   }
   
     ///////////////////////:::esijbpiubqpidiudb
     render() {
+      //getListeétudiantesFromApi() = this.props
+      //utilisateurs = {etu}
       console.log("Singin Vue")
-      console.log(utilisateurs)
+      //console.log(etu)
+      console.log(this.user)
         return (
           <View style={{flex: 10,flexDirection:"column", marginTop:30,}}>
             <View style={{ flex: 3, flexDirection:"row" }} >

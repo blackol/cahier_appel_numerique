@@ -1,21 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,Button,Image} from 'react-native';
 import {createDrawerNavigator} from 'react-navigation';
+import { TouchableOpacity } from "react-native-gesture-handler";
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 
 export default class PageEtudiant extends React.Component {
 
     render() {
       console.log("HOme")
-      console.log(this.props
-        )
+      console.log(this.props)
         return (
             <View style={styles.container}>
 
               <View  style={{ flex: 1,flexDirection:"row", }}>
-              <View style={{ flex: 1}}>
-                <Button title="Menu"  onPress={() => this.props.navigation.toggleDrawer()} />
-              </View>
                 <View style={{ flex: 2}}></View>
                 <View style={{ flex: 2}}></View>
               </View>
@@ -24,27 +22,24 @@ export default class PageEtudiant extends React.Component {
               
                     <TouchableOpacity style={styles.button}
                           onPress={this.onPress}>
-                            <Text style={styles.buttonText}>Etudiant(e) Présent(e)</Text>
+                            <Text style={styles.buttonText}> Présent(e)</Text>
                     </TouchableOpacity>
                 
                 </View>
-                <View  style={{ flex: 3 }} >
-                  <Button
-                    title="React Native by Example"
-                    onPress={() =>
-                      this.props.navigation.push("Details", { name: "React Native by Example " })
-                    }
-                  />
-                  <Button
-                    title="React Native School"
-                    onPress={() =>
-                      this.props.navigation.push("Details", { name: "React Native School" })
-                    }
-                  />
-                </View>
-
+               
             </View>
-        );
+              /*<TouchableOpacity
+              style={{
+                  width: 44,
+                  height: 44,
+                  marginBottom: 20
+              }}
+              onPress={()=>{
+                this.props.navigation.toggleDrawer();
+              }}>
+                  <Icon name='menu' size={20} color='black'/>
+              </TouchableOpacity>*/
+          )  
     }
 }
 

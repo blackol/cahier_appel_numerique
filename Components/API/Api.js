@@ -1,8 +1,13 @@
 // Exemple API qui recupère des infos 
 
-export function getFilmsFromApiWithSearchedText (text, page) {
-    const url = ''
-    return fetch(url)
+export function  getListeétudiantesFromApi ()  {
+    return fetch('http://localhost/etudiants')
       .then((response) => response.json())
-      .catch((error) => console.error(error))
+      .then((json) => {
+        return console.log(json.movies);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  ;
     }

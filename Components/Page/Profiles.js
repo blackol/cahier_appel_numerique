@@ -1,22 +1,54 @@
 import React from 'react';
-import { StyleSheet, Text, View,Button,Image, Alert, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View,Button,Image, Alert, TouchableOpacity, TextInput} from 'react-native';
 
 
 export default class Profiles extends React.Component {
-
   constructor(props)
-  {
-    super(props)
-    this.users ='yolo';
-  }
-
- 
+    {
+        super(props);
+        this.state = {
+           user : this.props.user,
+            projets: this.props.users || [],
+        }}
+    ///////////////////////:::esijbpiubqpidiudb
     render() {
+      console.log("Profiles")
+      console.log(this.state.projets
+        )
+        console.log(this.props.users)
         return (
           <View style={styles.container}>
-               <Text>Profile Screen</Text>
-                <Button title="Drawer" width="500px" onPress={() => this.props.navigation.toggleDrawer()} />
+
+            <View style={{flex: 10,flexDirection:"row", marginTop:30,}}>
+              <View style={{flex: 1}}></View>
+              <View>
+                <Image source={require('../asset/Personne.png')}  style={styles.image}/>
+              </View>
+              <View  style={{flex: 1}}></View>
+            </View>
+
+               <View style={styles.profilespage}>
+                 <Text>{this.props.users.Nom}</Text>
+                 <TextInput style={styles.textinput} underlineColorAndroid={'transparent'}></TextInput>
+
+                 <Text>{this.props.users.Prenom}</Text>
+                 <TextInput style={styles.textinput} underlineColorAndroid={'transparent'}></TextInput>
+
+                 <Text>{this.props.users.Promotion}</Text>
+                 <TextInput style={styles.textinput} underlineColorAndroid={'transparent'}></TextInput>
+
+                 <Text>{this.props.users.numEtudiant}</Text>
+                 <TextInput style={styles.textinput} underlineColorAndroid={'transparent'}></TextInput>
+               </View>
+
+               <View style={{ flex: 5, marginTop:70}}>
+               <TouchableOpacity style={styles.button}
+                          onPress={() => this.props.navigation.navigate("Inscription")}>
+                            <Text style={styles.buttonText}>Inscription</Text>
+            </TouchableOpacity>
+            </View>
           </View>
+
 
             
         );
@@ -37,9 +69,10 @@ const styles = StyleSheet.create({
   image:{ 
     
     width: 200, 
-    height: 200,
+    height: 130,
     //marginLeft: 80,
-    borderRadius : 10,
+    borderRadius : 20,
+    
     
   },
 
@@ -47,30 +80,21 @@ const styles = StyleSheet.create({
        marginBottom:12,
        marginLeft:155,
   },
+
+  profilespage : {
+      alignItems : 'stretch',
+      marginTop : 30,
+  },
   
-  input: {
-    //width: 200,
-    height: 40,
-    margin: 12,
-    borderColor: 'black',
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 10,
-    borderRadius : 30,
-    backgroundColor:'white'
+  textinput :{
+    alignItems : 'stretch',
+    height : 40,
+    color : '#fff',
+    borderBottomColor : '#000000',
+    borderBottomWidth : 1,
+    marginBottom : 8,
+
   },
-
-  ButtonSyle:{
-    padding : 16,
-    borderRadius : 10,
-  },
-
-  btnEyes:{
-  position : 'absolute',
-  right: 28,
-  top:80,
-
-},
   forgot:{
     fontSize:20,
     color:'red',
@@ -78,19 +102,19 @@ const styles = StyleSheet.create({
 
   },
 
+  buttonText:{
+    marginRight:40,
+    textAlign : 'center',
+    paddingLeft: 27,
 
-  Conteneurphoto :{
-    flex: 1,
-    backgroundColor:'red',
   },
-  ConteneurInput :{
-    flex: 1,
-    backgroundColor:'yellow',
-  },
-  ConteneurButton :{
-    flex: 1,
-    backgroundColor:'green',
-  },
+
+  
+  button: {
+    backgroundColor : '#ff0000',
+    height : 50,
+},
+
 
 
 });

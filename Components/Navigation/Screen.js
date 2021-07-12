@@ -1,10 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { AuthContext } from "./context";
+import SignIn from "../Page/SignIn";
+import HomePage from"../Page/HomePage";
 import Inscription from "../Page/Inscription";
 import InscriptionEtudiant from "../Page/InscriptionEtudiant";
 import InscriptionProfesseur from "../Page/InscriptionProfesseur";
 import Profiles from "../Page/Profiles";
+import ForgotPassword from "../Page/ForgotPassword";
+import Listes from "../Page/Listes";
+import Agenda from "../Page/Agenda";
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -23,6 +30,12 @@ const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
 
+export const Home = ({ navigation }) => (
+  <ScreenContainer>
+    <HomePage navigation={navigation}/>
+  </ScreenContainer>
+);
+
 export const Details = ({ route }) => (
   <ScreenContainer>
     <Text>Details Screen</Text>
@@ -30,6 +43,11 @@ export const Details = ({ route }) => (
   </ScreenContainer>
 );
 
+export const Agendas = ({ navigation }) => (
+  <ScreenContainer>
+    <Agenda navigation={navigation}/>
+  </ScreenContainer>
+);
 
 export const Inscriptions = ({ navigation }) => (
   <ScreenContainer>
@@ -47,15 +65,18 @@ export const InscriptionsProfesseur = () => (
   </ScreenContainer>
 );
 
+export const MotDePasseOublie = () => (
+  <ScreenContainer>
+           <ForgotPassword />
+</ScreenContainer>
+);
 
-export const Profile = ({ navigation }) => {
-  
-  return (
-    <ScreenContainer>
-      <Profiles navigation={navigation}/>
-    </ScreenContainer>
-  );
-};
+export const Liste = () => (
+  <ScreenContainer>
+           <Listes />
+</ScreenContainer>
+);
+
 
 export const Splash = () => (
   <ScreenContainer>
@@ -64,14 +85,12 @@ export const Splash = () => (
 );
 
 
-
-export const CreateAccount = () => {
+/*export const CreateAccount = () => {
   const { signUp } = React.useContext(AuthContext);
-
   return (
     <ScreenContainer>
-      <Text>Create Account Screen</Text>
-      <Button title="Sign Up" onPress={() => signUp()} />
+      <Text>Mot de passe</Text>
+      <Button title="Sign Up" onPress={() => MotDePasseOublie()} />
     </ScreenContainer>
   );
-};
+};*/
